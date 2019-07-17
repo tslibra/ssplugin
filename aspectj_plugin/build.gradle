@@ -1,0 +1,32 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply from:'./upload.gradle'
+
+
+def version = rootProject.ext.version
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation "com.android.tools.build:gradle:${version.GRADLE_VERSION}"
+    implementation "org.aspectj:aspectjtools:${version.ASPECTJ_TOOLS_VERSION}"
+    implementation "org.aspectj:aspectjrt:${version.ASPECTJ_RT_VERSION}"
+}
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        repository(url: LOCAL_REPO_URL)
+//        pom.groupId = PROJ_GROUP
+//        pom.artifactId = PROJ_ARTIFACTID
+//        pom.version = PROJ_VERSION
+//    }
+//}
+targetCompatibility = version.JAVA_TARGET_VERSION
+sourceCompatibility = version.JAVA_SOURCE_VERSION
+
+
+
+
+
+
+
+
